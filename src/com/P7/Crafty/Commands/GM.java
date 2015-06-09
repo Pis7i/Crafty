@@ -22,30 +22,45 @@ public class GM implements CommandExecutor{
 		
 		if(cmd.getLabel().equalsIgnoreCase("GM")){
 			Player player = (Player) sender;
-			if(args.length == 1){
 				//Throws Error Fix This.
+			if(args.length == 0){
+				player.sendMessage(ChatColor.RED + "Usage: /<Command> <Player> <GameMode>");
+			}else
+				if(args[0].equalsIgnoreCase("0")){
+					player.setGameMode(GameMode.SURVIVAL);
+					player.sendMessage("Your GameMode is changed to Survival.");
+				}else if(args[0].equalsIgnoreCase("1")){
+					player.setGameMode(GameMode.CREATIVE);
+					player.sendMessage("Your GameMode is changed to Creative.");
+				}else if(args[0].equalsIgnoreCase("2")){
+					player.setGameMode(GameMode.ADVENTURE);
+					player.sendMessage("Your GameMode is changed to Adventure.");
+				}else if(args[0].equalsIgnoreCase("3")){
+					player.setGameMode(GameMode.SPECTATOR);
+					player.sendMessage("Your GameMode is changed to Spectator.");
+				}else 	 
+			if(args.length == 1){
+				player.sendMessage(ChatColor.RED + "Usage: /<Command> <Player> <GameMode>");
+			}else
+			if (player.getServer().getPlayer(args[0]) != null) {
+	            Player targetPlayer = plugin.getServer().getPlayer(args[0]);
+	            player.sendMessage("GameMode of the target has changed!");
 				if(args[1].equalsIgnoreCase("0")){
 					player.setGameMode(GameMode.SURVIVAL);
-				}
-				
-				if(args[1].equalsIgnoreCase("1")){
+					targetPlayer.sendMessage("Your GameMode is changed to Survival.");
+				}else if(args[1].equalsIgnoreCase("1")){
 					player.setGameMode(GameMode.CREATIVE);
-				}
-				
-				if(args[1].equalsIgnoreCase("2")){
+					targetPlayer.sendMessage("Your GameMode is changed to Creative.");
+				}else if(args[1].equalsIgnoreCase("2")){
 					player.setGameMode(GameMode.ADVENTURE);
-
-				}
-				
-				if(args[1].equalsIgnoreCase("3")){
+					targetPlayer.sendMessage("Your GameMode is changed to Adventure.");
+				}else if(args[1].equalsIgnoreCase("3")){
 					player.setGameMode(GameMode.SPECTATOR);
-				}
-			}else {
-				player.sendMessage(ChatColor.RED + "Usage: /<Command> <Player> <GameMode>");
-
+					targetPlayer.sendMessage("Your GameMode is changed to Spectator.");
+	            }
 			}
 		}
-		
+
 		return false;
 	}
 
