@@ -1,0 +1,11 @@
+name: Crafty
+main: com.P7.Crafty.Main
+author: P7
+commands:
+   Crafty:
+     description: Main command of the plugin.
+   Heal:
+     description: Heals player.
+   GM:
+     description: Changes GameMode.
+version: 0.1
