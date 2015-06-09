@@ -1,3 +1,3 @@
 # Crafty
 
-[b]Crafty[/b]
+Crafty is a helpful plugin for minecraft servers.
